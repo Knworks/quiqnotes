@@ -46,8 +46,13 @@ Adds a new note using a specified template.
 | --- | --- | --- |
 | `quiqNotes.fileName` | `NewNote` | Default title when none is entered. |
 | `quiqNotes.fileExtensions` | *(blank)* | Comma-separated extensions (e.g., `md,txt`). Blank uses `.md` and hides the picker. |
-| `quiqNotes.fileFormat` | `{date}_{datetime}_{title}.{ext}` | Filename format. Placeholders: `{date}`, `{datetime}`, `{title}`, `{ext}`. |
+| `quiqNotes.fileFormat` | `{date}_{datetime}_{title}.{ext}` | Filename format. Placeholders: `{date}`, `{date_mdy}`, `{date_dmy}`, `{datetime}`, `{title}`, `{ext}`. |
 | `quiqNotes.templateFolder` | *(blank)* | Absolute or workspace-relative template folder path. |
+
+## Template Variables
+
+When a template is selected, the template body also supports these placeholders:
+`{date}`, `{date_mdy}`, `{date_dmy}`, `{datetime}`, `{title}`, `{ext}`.
 
 ## Privacy / Telemetry
 
