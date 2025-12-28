@@ -1,7 +1,6 @@
 # Quiq Notes
 
-A VS Code extension that lets you create notes from the Command Palette in a minimal number of steps.  
-By configuring templates, you can easily standardize the format of your notes.
+This is an extension that allows you to quickly create template-based notes from the command palette.
 
 ## Quick Start
 
@@ -19,7 +18,7 @@ Adds a new note using a specified template.
 
 1. Select the target folder in the Explorer. (If no folder is selected, this command cannot be executed.)
 2. Run `Quiq Notes: Create New Note` from the Command Palette.
-3. Enter a title. (If left empty, the default title is used.)
+3. Enter a title. (If left empty, the default title is used. Date/time placeholders such as `{date}` are replaced in the file name.)
 4. Select a file extension. (This is shown only when extensions are configured. If not configured, `.md` is always used.)
 5. Select a template. (Shown only when template files exist. The first entry is `Not applicable`.)
 6. The note is created and opened in the editor. (If a file with the same name already exists, a sequential number is appended.)
@@ -53,6 +52,8 @@ Adds a new note using a specified template.
 
 When a template is selected, the template body also supports these placeholders:
 `{date}`, `{date_mdy}`, `{date_dmy}`, `{datetime}`, `{title}`, `{ext}`.
+
+The note title input also supports `{date}`, `{date_mdy}`, `{date_dmy}`, `{datetime}` for file name expansion.
 
 ## Privacy / Telemetry
 
