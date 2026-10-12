@@ -1,0 +1,107 @@
+{
+  "name": "quiqnotes",
+  "displayName": "Quiq Notes",
+  "publisher": "Knworks",
+  "description": "This is an extension that allows you to quickly create template-based notes from the command palette.",
+  "repository": "https://github.com/Knworks/quiqnotes",
+  "version": "1.0.2",
+  "license": "MIT",
+  "icon": "images/quiqnotes.png",
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+  "note",
+  "notes",
+  "memo",
+  "notebook",
+  "quick",
+  "quick note",
+  "scratchpad",
+  "notepad",
+  "markdown",
+  "template"
+  ],
+  "activationEvents": [
+    "onCommand:quiqnotes.cmd.createNote",
+    "onCommand:quiqnotes.cmd.createTemplate",
+    "onCommand:quiqnotes.cmd.openTemplate",
+    "onCommand:quiqnotes.cmd.deleteTemplate"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quiqnotes.cmd.createNote",
+        "title": "%cmd.createNote.title%"
+      },
+      {
+        "command": "quiqnotes.cmd.createTemplate",
+        "title": "%cmd.createTemplate.title%"
+      },
+      {
+        "command": "quiqnotes.cmd.openTemplate",
+        "title": "%cmd.openTemplate.title%"
+      },
+      {
+        "command": "quiqnotes.cmd.deleteTemplate",
+        "title": "%cmd.deleteTemplate.title%"
+      }
+    ],
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "quiqNotes.fileName": {
+          "type": "string",
+          "default": "NewNote",
+          "markdownDescription": "%configuration.fileName.description%"
+        },
+        "quiqNotes.fileExtensions": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%configuration.fileExtensions.description%"
+        },
+        "quiqNotes.fileFormat": {
+          "type": "string",
+          "default": "{date}_{datetime}_{title}.{ext}",
+          "markdownDescription": "%configuration.fileFormat.description%"
+        },
+        "quiqNotes.templateFolder": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%configuration.templateFolder.description%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.106.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "esbuild": "^0.25.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
